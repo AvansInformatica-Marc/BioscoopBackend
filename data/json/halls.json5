@@ -1,0 +1,35 @@
+[
+    {
+        id: 1,
+        cinemaID: 1,
+        name: "1",
+        seats: {
+            horizontal: 4,
+            vertical: 6
+        }
+    }, {
+        id: 2,
+        cinemaID: 2,
+        name: "1A",
+        seats: {
+            horizontal: 6,
+            vertical: 8
+        }
+    }, {
+        id: 3,
+        cinemaID: 2,
+        name: "1B",
+        seats: {
+            horizontal: 6,
+            vertical: 8
+        }
+    }, {
+        id: 4,
+        cinemaID: 2,
+        name: "2",
+        seats: {
+            horizontal: 8,
+            vertical: 12
+        }
+    }
+]

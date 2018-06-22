@@ -1,0 +1,31 @@
+[
+    {
+        id: 1,
+        name: "Star Wars: Episode VIII - The Last Jedi",
+        description: "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares for battle with the First Order.",
+        minAge: 12,
+        duration: 152,
+        poster: "https://m.media-amazon.com/images/M/MV5BMjQ1MzcxNjg4N15BMl5BanBnXkFtZTgwNzgwMjY4MzI@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+    }, {
+        id: 2,
+        name: "Spectre",
+        description: "A cryptic message from 007 past sends him pitted against a mysterious terrorist organization called Spectre, and learns of its involvement on previous events of his most dangerous missions before.",
+        minAge: 12,
+        duration: 148,
+        poster: "https://m.media-amazon.com/images/M/MV5BOWQ1MDE1NzgtNTQ4OC00ZjliLTllZDAtN2IyOTVmMTc5YjUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+    }, {
+        id: 3,
+        name: "Gravity",
+        description: "Two astronauts work together to survive after an accident which leaves them stranded in space.",
+        minAge: 12,
+        duration: 91,
+        poster: "https://m.media-amazon.com/images/M/MV5BNjE5MzYwMzYxMF5BMl5BanBnXkFtZTcwOTk4MTk0OQ@@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+    }, {
+        id: 4,
+        name: "The Martian",
+        description: "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",
+        minAge: 12,
+        duration: 144,
+        poster: "https://m.media-amazon.com/images/M/MV5BMTc2MTQ3MDA1Nl5BMl5BanBnXkFtZTgwODA3OTI4NjE@._V1_SY1000_CR0,0,675,1000_AL_.jpg"
+    }
+]
