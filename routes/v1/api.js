@@ -16,6 +16,7 @@ router.route("/movies").get((req, res) => {
                 var movie = JSON.parse(body);
                 movie.poster = "https://image.tmdb.org/t/p/w500" + movie.poster_path
                 movie.description = movie.overview
+                movie.name = movie.title
                 movieData.push(movie)
             } else {
                 movieData.push({
