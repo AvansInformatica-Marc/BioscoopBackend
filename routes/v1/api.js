@@ -17,6 +17,8 @@ router.route("/movies").get((req, res) => {
                 movie.poster = "https://image.tmdb.org/t/p/w500" + movie.poster_path
                 movie.description = movie.overview
                 movie.name = movie.title
+                movie.minAge = movie.adult ? 18 : 12
+                movie.duration = movie.runtime
                 movieData.push(movie)
             } else {
                 movieData.push({
