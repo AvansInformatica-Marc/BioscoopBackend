@@ -14,7 +14,7 @@ router.route("/movies").get((req, res) => {
         }, function (error, response, body){
             if (!error && response.statusCode == 200) {
                 var movie = JSON.parse(body);
-                movie.poster = "https://image.tmdb.org/t/p/w500/" + movie.poster_path
+                movie.poster = "https://image.tmdb.org/t/p/w500" + movie.poster_path
                 movie.description = movie.overview
                 movieData.push(movie)
             } else {
