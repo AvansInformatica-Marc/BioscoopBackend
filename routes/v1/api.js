@@ -7,9 +7,9 @@ Array.prototype.removeDuplicates = function(){
     return [...new Set(this)]
 }
 
-function getMovieDataById(movieID, callback){
+function getMovieDataById(movieID, language, callback){
     httpRequest({
-        url: `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.TMDB_KEY}&language=nl-NL`,
+        url: `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.TMDB_KEY}&language=${language}`,
         method: "GET"
     }, function (error, response, body){
         if (!error && response.statusCode == 200) {
@@ -38,13 +38,14 @@ function mapMovieToDisplayType(displayType, movie){
     return movie
 }
 
+// Get a list of movies that are in the cinema right now.
 router.route("/shows/movies").get((request, response) => {
     const displayType = request.query.displayType
     const moviesIDlist = dataManager.getAllShows().map((show) => show.movieID).removeDuplicates()
     let moviesLeft = moviesIDlist.length
     const movieData = []
     moviesIDlist.forEach((movieID) => {
-        getMovieDataById(movieID, (error, movie) => {
+        getMovieDataById(movieID, request.query.language || "nl-NL", (error, movie) => {
             if(!error) movieData.push(mapMovieToDisplayType(displayType, movie))
             moviesLeft--
             if(moviesLeft === 0) response.status(200).json(movieData)
@@ -52,9 +53,10 @@ router.route("/shows/movies").get((request, response) => {
     })
 })
 
+// Get information about the movie
 router.route("/movies/:ID?").get((request, response) => {
     const displayType = request.query.displayType
-    getMovieDataById(parseInt(request.params.ID), (error, movie) => {
+    getMovieDataById(parseInt(request.params.ID), request.query.language || "nl-NL", (error, movie) => {
         if(error) response.status(400).json({
             title: "Error fetching movie."
         });
@@ -62,8 +64,22 @@ router.route("/movies/:ID?").get((request, response) => {
     })
 })
 
-router.route("/shows").get((request, response) => {
-    response.status(200).json(dataManager.getAllShows())
+// Get a list of shows (datetime + location) for a movie
+router.route("/movies/:ID?/shows").get((request, response) => {
+    const movieID = parseInt(request.params.ID)
+    const showList = dataManager.getAllShows().filter((show) => show.movieID === movieID)
+    const result = showList.map((show) => {
+        const hall = dataManager.getAllHalls().find((hall) => hall.id === show.hallID)
+        const cinema = dataManager.getAllCinemas().find((cinema) => cinema.id === hall.cinemaID)
+        return {
+            showID: show.id,
+            hallID: hall.id,
+            cinemaID: cinema.id,
+            datetime: show.datetime,
+            location: cinema.location 
+        }
+    })
+    response.status(200).json(result)
 })
 
 module.exports = router

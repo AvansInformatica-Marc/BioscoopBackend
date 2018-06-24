@@ -9,11 +9,11 @@ module.exports = class {
         return shows
     }
 
-    getHalls(){
+    getAllHalls(){
         return halls
     }
 
-    getCinemas(){
+    getAllCinemas(){
         return cinemas
     }
 }
