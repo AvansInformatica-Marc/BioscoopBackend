@@ -11,8 +11,8 @@ function getMovieDataById(movieID, language, callback){
     httpRequest({
         url: `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.TMDB_KEY}&language=${language}`,
         method: "GET"
-    }, function (error, response, body){
-        if (!error && response.statusCode == 200) {
+    }, (error, response, body) => {
+        if (!error && response.statusCode >= 200 && response.statusCode < 400) {
             var movie = JSON.parse(body);
             movie.poster = "https://image.tmdb.org/t/p/w780" + movie.poster_path
             movie.backdrop = "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
@@ -45,8 +45,9 @@ router.route("/shows/movies").get((request, response) => {
     let moviesLeft = moviesIDlist.length
     const movieData = []
     moviesIDlist.forEach((movieID) => {
-        getMovieDataById(movieID, request.query.language || "nl-NL", (error, movie) => {
-            if(!error) movieData.push(mapMovieToDisplayType(displayType, movie))
+        getMovieDataById(movieID, (request.query.language || "nl-NL"), (error, movie) => {
+            if(!error && movie != null) movieData.push(mapMovieToDisplayType(displayType, movie))
+            else console.log(`error: ${error}`)
             moviesLeft--
             if(moviesLeft === 0) response.status(200).json(movieData)
         })
@@ -56,7 +57,7 @@ router.route("/shows/movies").get((request, response) => {
 // Get information about the movie
 router.route("/movies/:ID?").get((request, response) => {
     const displayType = request.query.displayType
-    getMovieDataById(parseInt(request.params.ID), request.query.language || "nl-NL", (error, movie) => {
+    getMovieDataById(parseInt(request.params.ID), (request.query.language || "nl-NL"), (error, movie) => {
         if(error) response.status(400).json({
             title: "Error fetching movie."
         });
