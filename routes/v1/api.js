@@ -83,4 +83,8 @@ router.route("/movies/:ID?/shows").get((request, response) => {
     response.status(200).json(result)
 })
 
+router.route("/cinemas").get((request, response) => {
+    response.status(200).json(dataManager.getAllCinemas())
+})
+
 module.exports = router
