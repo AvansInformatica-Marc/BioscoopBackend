@@ -6,14 +6,20 @@ const shows = require("./shows.json5")
 
 module.exports = class {
     getAllShows(){
-        return shows
+        return new Promise((resolve, reject) => {
+            resolve(shows)
+        })
     }
 
     getAllHalls(){
-        return halls
+        return new Promise((resolve, reject) => {
+            resolve(halls)
+        })
     }
 
     getAllCinemas(){
-        return cinemas
+        return new Promise((resolve, reject) => {
+            resolve(cinemas)
+        })
     }
 }
