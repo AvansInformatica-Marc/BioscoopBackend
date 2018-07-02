@@ -9,12 +9,16 @@ Array.prototype.removeDuplicates = function(){
 
 // Get a list of movies that are in the cinema right now.
 router.route("/shows/movies").get(async (request, response) => {
-    response.status(200).json(await Promise.all(
-        (await dataManager.getAllShows())
-            .map((show) => show.movieID)
-            .removeDuplicates()
-            .map(async (movieID) => await Movie.getByID(movieID, (request.query.language || "nl-NL")))
-    ))
+    try {
+        response.status(200).json(await Promise.all(
+            (await dataManager.getAllShows())
+                .map((show) => show.movieID)
+                .removeDuplicates()
+                .map(async (movieID) => await Movie.getByID(movieID, (request.query.language || "nl-NL")))
+        ))
+    } catch (error) {
+        response.status(400).json([])
+    }
 })
 
 // Get information about the movie
