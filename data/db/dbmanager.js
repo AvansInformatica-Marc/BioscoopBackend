@@ -3,8 +3,8 @@ const Hall = require("../../model/hall")
 const Cinema = require("../../model/cinema")
 
 class DBManager {
-    constructor(db) {
-        this.db = db;
+    constructor() {
+        this.db = require("./mysql-connector")
     }
 
     getAllShows(){

@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql')
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -6,10 +6,10 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     insecureAuth : true
-});
+})
 
 db.connect((error) => {
-    console.log(error ? error : `Connected to ${process.env.DB_HOST}:${process.env.DB_DATABASE}`);
-});
+    console.log(error ? error : `Connected to ${process.env.DB_HOST}:${process.env.DB_DATABASE}`)
+})
 
-module.exports = db;
+module.exports = db
