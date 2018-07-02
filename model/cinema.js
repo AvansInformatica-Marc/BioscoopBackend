@@ -7,8 +7,8 @@ class Cinema {
             postalcode: object.PostalCode,
             number: object.Number
         },
-        this.PhoneNumber = object.SeatsTaken
-        this.Email = object.SeatsTaken
+        this.phonenumber = object.PhoneNumber
+        this.email = object.Email
     }
 }
 
