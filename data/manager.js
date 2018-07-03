@@ -1,1 +1,1 @@
-module.exports = require("./db/dbmanager")
+module.exports = require("./json/jsonmanager")

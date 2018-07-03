@@ -25,7 +25,9 @@ module.exports = class {
 
     updateSeatsTakenCount(showID, newSeatsTaken){
         return new Promise((resolve, reject) => {
-            reject(new Error("Method not supported: use a database instead"))
+            const showIndex = shows.findIndex((show) => show.id === showID)
+            shows[showIndex].seatsTaken = newSeatsTaken
+            resolve()
         })
     }
 }
