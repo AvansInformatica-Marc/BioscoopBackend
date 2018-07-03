@@ -40,13 +40,9 @@ router.route("/movies/:ID?/shows").get(async (request, response) => {
         const result = await Promise.all(showList.map(async (show) => {
             const hall = (await dataManager.halls).find((hall) => hall.id === show.hallID)
             const cinema = (await dataManager.cinemas).find((cinema) => cinema.id === hall.cinemaID)
-            return {
-                showID: show.id,
-                hallID: hall.id,
-                cinemaID: cinema.id,
-                datetime: show.datetime,
-                location: cinema.location 
-            }
+            show.hall = hall
+            show.cinema = cinema
+            return show
         }))
         response.status(200).json(result)
     } catch (error) {
