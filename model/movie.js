@@ -4,11 +4,11 @@ class Movie {
     constructor(json){
         this.id = json.id
         this.images = {
-            header: "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path,
-            poster: "https://image.tmdb.org/t/p/w780" + movie.poster_path
+            header: "https://image.tmdb.org/t/p/w1280" + json.backdrop_path,
+            poster: "https://image.tmdb.org/t/p/w780" + json.poster_path
         }
-        this.title = movie.title
-        this.description = movie.overview
+        this.title = json.title
+        this.description = json.overview
     }
 
     static getByID(ID, language) {

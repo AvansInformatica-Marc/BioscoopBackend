@@ -5,21 +5,27 @@ const halls = require("./halls.json5")
 const shows = require("./shows.json5")
 
 module.exports = class {
-    getAllShows(){
+    get shows(){
         return new Promise((resolve, reject) => {
             resolve(shows)
         })
     }
 
-    getAllHalls(){
+    get halls(){
         return new Promise((resolve, reject) => {
             resolve(halls)
         })
     }
 
-    getAllCinemas(){
+    get cinemas(){
         return new Promise((resolve, reject) => {
             resolve(cinemas)
+        })
+    }
+
+    updateSeatsTakenCount(showID, newSeatsTaken){
+        return new Promise((resolve, reject) => {
+            reject(new Error("Method not supported: use a database instead"))
         })
     }
 }

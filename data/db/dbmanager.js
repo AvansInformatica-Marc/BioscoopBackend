@@ -7,10 +7,10 @@ class DBManager {
         this.db = require("./mysql-connector")
     }
 
-    getAllShows(){
+    get shows(){
         const db = this.db
         return new Promise((resolve, reject) => {
-            db.query("SELECT * FROM Show", (error, rows, fields) => {
+            db.query("SELECT * FROM `Show`", (error, rows, fields) => {
                 try {
                     if (error) throw error
                     resolve(rows.map((item) => new Show(item)))
@@ -21,7 +21,7 @@ class DBManager {
         })
     }
 
-    getAllHalls(){
+    get halls(){
         const db = this.db
         return new Promise((resolve, reject) => {
             db.query("SELECT * FROM Hall", (error, rows, fields) => {
@@ -35,7 +35,7 @@ class DBManager {
         })
     }
 
-    getAllCinemas(){
+    get cinemas(){
         const db = this.db
         return new Promise((resolve, reject) => {
             db.query("SELECT * FROM Cinema", (error, rows, fields) => {
@@ -45,6 +45,16 @@ class DBManager {
                 } catch (err) {
                     reject(err)
                 }
+            })
+        })
+    }
+
+    updateSeatsTakenCount(showID, newSeatsTaken){
+        const db = this.db
+        return new Promise((resolve, reject) => {
+            db.query("UPDATE `Show` SET SeatsTaken=? WHERE ID=?", [newSeatsTaken, showID], (error, rows, fields) => {
+                if (error) reject(error)
+                resolve()
             })
         })
     }
