@@ -62,7 +62,7 @@ router.route("/cinemas").get(async (request, response) => {
 })
 
 // Get ticket price
-router.route("/shows/:ID?/ticketprice").patch((request, response) => {
+router.route("/shows/:ID?/ticketprice").get((request, response) => {
     const requestedAmountOfSeats = parseInt(request.query.amount) || 1
     response.status(200).json({
         price: (requestedAmountOfSeats * 5)
