@@ -9,6 +9,7 @@ class Movie {
         }
         this.title = json.title
         this.description = json.overview
+        this.duration = json.runtime
     }
 
     static getByID(ID, language) {
