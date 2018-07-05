@@ -2,27 +2,32 @@ require('json5/lib/register')
 
 const cinemas = require("./cinemas.json5")
 const halls = require("./halls.json5")
-const movies = require("./movies.json5")
 const shows = require("./shows.json5")
 
 module.exports = class {
-    getAllMovies(){
-        return movies
+    get shows(){
+        return new Promise((resolve, reject) => {
+            resolve(shows)
+        })
     }
 
-    getAllShows(){
-        return shows
+    get halls(){
+        return new Promise((resolve, reject) => {
+            resolve(halls)
+        })
     }
 
-    getHallById(id){
-        return halls.filter((hall) => hall.id === id)
+    get cinemas(){
+        return new Promise((resolve, reject) => {
+            resolve(cinemas)
+        })
     }
 
-    getCinemaById(id){
-        return cinemas.filter((cinema) => cinema.id === id)
-    }
-
-    getMovieById(id){
-        return movies.filter((movie) => movie.id === id)
+    updateSeatsTakenCount(showID, newSeatsTaken){
+        return new Promise((resolve, reject) => {
+            const showIndex = shows.findIndex((show) => show.id === showID)
+            shows[showIndex].seatsTaken = newSeatsTaken
+            resolve()
+        })
     }
 }

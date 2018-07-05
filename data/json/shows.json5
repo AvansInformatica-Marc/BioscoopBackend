@@ -2,75 +2,68 @@
     {
         id: 1,
         hallID: 1,
-        movieID: 1,
-        availableSeats: [
-            [true, true, false, false],
-            [true, true, true, true],
-            [false, false, false, true],
-            [true, true, true, true],
-            [true, true, true, true],
-            [true, true, true, true]
-        ],
-        datetime: "2018-07-02T20:00:00Z"
+        movieID: 157336,
+        datetime: "2018-07-02T20:00:00Z",
+        seatsTaken: 18
     }, {
-        id: 1,
+        id: 2,
         hallID: 3,
-        movieID: 2,
-        availableSeats: [
-            [false, false, true, false, false, true],
-            [true, true, true, true, false, false],
-            [false, false, false, true, true, false],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true]
-        ],
-        datetime: "2018-07-02T20:30:00Z"
+        movieID: 181808,
+        datetime: "2018-07-02T20:30:00Z",
+        seatsTaken: 13
     }, {
-        id: 1,
+        id: 4,
+        hallID: 2,
+        movieID: 49047,
+        datetime: "2018-07-08T21:30:00Z",
+        seatsTaken: 2
+    }, {
+        id: 3,
         hallID: 3,
-        movieID: 2,
-        availableSeats: [
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true]
-        ],
-        datetime: "2018-07-02T23:30:00Z"
+        movieID: 206647,
+        datetime: "2018-07-02T23:30:00Z",
+        seatsTaken: 7
     }, {
-        id: 1,
+        id: 5,
         hallID: 2,
-        movieID: 3,
-        availableSeats: [
-            [true, true, false, false, false, false],
-            [true, true, true, false, false, false],
-            [true, false, true, true, true, true],
-            [true, true, true, false, true, true],
-            [true, true, true, true, true, true],
-            [true, false, false, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true]
-        ],
-        datetime: "2018-07-08T21:30:00Z"
+        movieID: 286217,
+        datetime: "2018-07-09T20:30:00Z",
+        seatsTaken: 3
     }, {
-        id: 1,
+        id: 6,
+        hallID: 3,
+        movieID: 337339,
+        datetime: "2018-07-09T20:30:00Z",
+        seatsTaken: 0
+    }, {
+        id: 7,
+        hallID: 1,
+        movieID: 181808,
+        datetime: "2018-07-10T20:00:00Z",
+        seatsTaken: 0
+    }, {
+        id: 8,
+        hallID: 4,
+        movieID: 181808,
+        datetime: "2018-07-10T20:00:00Z",
+        seatsTaken: 0
+    }, {
+        id: 9,
+        hallID: 1,
+        movieID: 135397,
+        datetime: "2018-07-11T20:00:00Z",
+        seatsTaken: 0
+    }, {
+        id: 10,
         hallID: 2,
-        movieID: 4,
-        availableSeats: [
-            [true, false, false, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, true, true, true, true],
-            [true, true, false, false, true, true],
-            [true, true, true, true, false, false],
-            [true, true, true, true, true, true],
-            [false, false, false, false, true, true],
-            [true, true, true, true, true, true]
-        ],
-        datetime: "2018-07-09T20:30:00Z"
+        movieID: 348350,
+        datetime: "2018-07-12T09:30:00Z",
+        seatsTaken: 0
+    }, {
+        id: 11,
+        hallID: 3,
+        movieID: 568,
+        datetime: "2018-07-12T18:45:00Z",
+        seatsTaken: 0
     }
 ]

@@ -1,4 +1,4 @@
-require('dotenv').config()
+if(process.env.PORT === undefined) require('dotenv').config()
 
 const express = require("express")
 const bodyParser = require("body-parser")
@@ -13,6 +13,7 @@ app.all("*", function(req, res, next){
 })
 
 app.use("/api/v1/", require("./routes/v1/api.js"))
+app.use("/api/v2/", require("./routes/v2/api.js"))
 
 const port = process.env.PORT
 app.listen(port, () => {
